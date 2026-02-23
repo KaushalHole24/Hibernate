@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Default type = singalton -->
+    <!-- Other type = prototype -> Every time we say getbean then new object is created. If we dont mention getbean no object will be created -->
+    <!-- Autowire = Search for dependency with name, with type if set to byType. Autowire will be ignored if propery is mentioned explicitly -->
+    <!-- lazy-init = When spring.XML file is executed it create all the object. But after adding this propery it willnot create object until it is been used somewhere in the program -->
+
+    <bean id="alien" class="kaushal.Alien"  autowire="byType">
+        <!-- <property name="age" value="21"></property> -->
+        <!-- <property  name="laptop" ref="objlap"></property> -->
+         <!-- <property name="com" ref="objlap"></property> -->
+
+        <!-- Here we are using index. other then index we can follow the way they are written or name will also work. -->
+        <!-- <constructor-arg index="0" value="21"/>
+        <constructor-arg index="1" ref="objlap"/> -->
+    </bean>
+    
+    <!-- <bean id="objlap" class="kaushal.Laptop"></bean> -->
+    <!-- <bean id="com" class="kaushal.Laptop"></bean> -->
+
+    <!-- Here both have same id so which one will it select ??   We can set primary to avaoid this confusion but again if property is set explictly it will ignore primary -->
+    <bean id="com1" class="kaushal.Laptop" lazy-init="true"></bean>
+    <bean id="com2" class="kaushal.Desktop" primary="true"></bean>
+
+</beans>
