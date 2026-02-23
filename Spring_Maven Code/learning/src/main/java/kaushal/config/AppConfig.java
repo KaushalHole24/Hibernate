@@ -8,6 +8,7 @@ import org.springframework.context.annotation.*;
 // import kaushal.Desktop;
 // import kaushal.Laptop;
 
+
 @Configuration
 @ComponentScan("kaushal")
 public class AppConfig {
